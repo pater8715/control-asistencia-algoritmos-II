@@ -4,22 +4,22 @@ package model;
  *
  * @author pater
  */
-public class Asistencia {
-    private Estudiante estudiante;
+public class Assistance {
+    private Student student;
     private boolean asistio;
 
     /**
      * @return the estudiante
      */
-    public Estudiante getEstudiante() {
-        return estudiante;
+    public Student getStudent() {
+        return student;
     }
 
     /**
-     * @param estudiante the estudiante to set
+     * @param student the estudiante to set
      */
-    public void setEstudiante(Estudiante estudiante) {
-        this.estudiante = estudiante;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     /**

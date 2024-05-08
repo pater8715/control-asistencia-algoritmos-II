@@ -1,9 +1,9 @@
 package home;
 
 import controller.HomeController;
-import model.ControlAsistencia;
-import model.Curso;
-import model.Estudiante;
+import model.AssistanceControl;
+import model.Course;
+import model.Student;
 import view.HomeView;
 
 public class Home {
@@ -32,16 +32,16 @@ public class Home {
             "RIVERO SOTERO FREDY DAVID"
         };
 
-        Estudiante listaEstudiantes[] = new Estudiante[nombresEstudiantes.length];
+        Student listaEstudiantes[] = new Student[nombresEstudiantes.length];
 
         for (int i = 0; i < listaEstudiantes.length; i++) {
-            listaEstudiantes[i]=new Estudiante();
-            listaEstudiantes[i].setNombre(nombresEstudiantes[i]);
+            listaEstudiantes[i]=new Student();
+            listaEstudiantes[i].setName(nombresEstudiantes[i]);
         }
-        Curso curso = new Curso(listaEstudiantes);
-        curso.setNombre("Algoritmos II");
+        Course curso = new Course(listaEstudiantes);
+        curso.setName("Algoritmos II");
         
-        ControlAsistencia control = new ControlAsistencia(curso,"04/05/2024");
+        AssistanceControl control = new AssistanceControl(curso,"04/05/2024");
     
         //control.tomarAsistenciaConsola();
         

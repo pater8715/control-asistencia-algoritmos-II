@@ -7,34 +7,34 @@ import java.util.Scanner;
  *
  * @author pater
  */
-public class ControlAsistencia {
+public class AssistanceControl {
 
-    private Curso curso;
-    private Asistencia[] lista;
-    private String fecha;
+    private final Course course;
+    private final Assistance[] list;
+    private final String date;
 
-    public Curso getCurso() {
-        return curso;
+    public Course getCourse() {
+        return course;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getDate() {
+        return date;
     }
 
-    public ControlAsistencia(Curso curso, String fecha) {
-        this.curso = curso;
-        this.fecha = fecha;
-        this.lista = new ListaAsistencia(fecha).crearListaAsistencia(this.curso);
+    public AssistanceControl(Course curso, String fecha) {
+        this.course = curso;
+        this.date = fecha;
+        this.list = new AssistanceList(fecha).createAssistanceList(this.course);
     }
 
     public void mostarListaAsistenciaConsola() {
-        StringBuilder result = new StringBuilder("Lista de Asistencia ").append(fecha).append("\n");
+        StringBuilder result = new StringBuilder("Lista de Asistencia ").append(date).append("\n");
         result.append("-----------------------------------------------------\n");
         result.append(String.format("| %-40s | %-7s |\n", "Nombre", "Asistio"));
         result.append("-----------------------------------------------------\n");
 
-        for (Asistencia asistencia : this.lista) {
-            String nombre = asistencia.getEstudiante().getNombre();
+        for (Assistance asistencia : this.list) {
+            String nombre = asistencia.getStudent().getName();
             String asistio = asistencia.isAsistio() ? "Si" : "No";
             result.append(String.format("| %-40s | %-7s |\n", nombre, asistio));
         }
@@ -46,15 +46,15 @@ public class ControlAsistencia {
 
     public void tomarAsistenciaConsola() {
         Scanner respuesta = new Scanner(System.in);
-        StringBuilder result = new StringBuilder("Lista de Asistencia ").append(fecha).append("\n");
+        StringBuilder result = new StringBuilder("Lista de Asistencia ").append(date).append("\n");
         result.append("-----------------------------------------------------\n");
         result.append(String.format("| %-40s | %-7s |\n", "Nombre", "Asistio"));
         result.append("-----------------------------------------------------\n");
 
         int index = 0;
         do {
-            Asistencia asistencia = this.lista[index];
-            String nombre = asistencia.getEstudiante().getNombre();
+            Assistance asistencia = this.list[index];
+            String nombre = asistencia.getStudent().getName();
             //String asistio = asistencia.isAsistio() ? "Si" : "No";
             result.append(String.format("| %-40s | %-7s |\n", nombre, ""));
             System.out.println(result);
@@ -64,7 +64,7 @@ public class ControlAsistencia {
             boolean modAsistio = res.equalsIgnoreCase("si");
             asistencia.setAsistio(modAsistio);
             index++;
-        } while (index < this.lista.length);
+        } while (index < this.list.length);
 
         System.out.println("-------------------------------------------------\n");
 
